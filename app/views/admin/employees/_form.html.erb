@@ -1,0 +1,110 @@
+<%= form_with(model: [:admin, employee]) do |form| %>
+  <% if employee.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+        <% employee.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="card rounded-0 mt-4">
+    <div class="card-body">
+      <h2 class="fw-bold text-primary">Personal Details</h2>
+      <div class="form-group row">
+        <div class="col-lg-4">
+          <%= form.label :first_name, class: "form-label mb-2 mt-2" %>
+          <%= form.text_field :first_name, class: "form-control form-control-lg rouded-0" %>
+        </div>
+        <div class="col-lg-4">
+          <%= form.label :middle_name, class: "form-label mb-2 mt-2" %>
+          <%= form.text_field :middle_name, class: "form-control form-control-lg rouded-0" %>
+        </div>
+        <div class="col-lg-4">
+          <%= form.label :last_name, class: "form-label mb-2 mt-2" %>
+          <%= form.text_field :last_name, class: "form-control form-control-lg rouded-0" %>
+        </div>
+        <div class="col-lg-4">
+          <%= form.label :email, class: "form-label mb-2 mt-2" %>
+          <%= form.text_field :email, class: "form-control form-control-lg rouded-0" %>
+        </div>
+        <div class="col-lg-4">
+          <%= form.label :primary_contact, class: "form-label mb-2 mt-2" %>
+          <%= form.text_field :primary_contact, class: "form-control form-control-lg rouded-0" %>
+        </div>
+        <div class="col-lg-4">
+          <%= form.label :secondary_contact, class: "form-label mb-2 mt-2" %>
+          <%= form.text_field :secondary_contact, class: "form-control form-control-lg rouded-0" %>
+        </div>
+        <div class="col-lg-4">
+          <%= form.label :date_of_birth, class: "form-label mb-2 mt-2" %>
+          <%= form.date_field :date_of_birth, class: "form-control form-control-lg rouded-0" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card rounded-0 mt-4">
+    <div class="card-body">
+      <h2 class="fw-bold text-primary">Address Details</h2>
+      <div class="form-group row">
+        <div class="col-lg-4">
+          <%= form.label :address_line_1, class: "form-label mb-2 mt-2" %>
+          <%= form.text_field :address_line_1, class: "form-control form-control-lg rouded-0" %>
+        </div>
+        <div class="col-lg-4">
+          <%= form.label :address_line_2, class: "form-label mb-2 mt-2" %>
+          <%= form.text_field :address_line_2, class: "form-control form-control-lg rouded-0" %>
+        </div>
+        <div class="col-lg-4">
+          <%= form.label :city, class: "form-label mb-2 mt-2" %>
+          <%= form.text_field :city, class: "form-control form-control-lg rouded-0" %>
+        </div>
+        <div class="col-lg-4">
+          <%= form.label :state, class: "form-label mb-2 mt-2" %>
+          <%= form.text_field :state, class: "form-control form-control-lg rouded-0" %>
+        </div>
+        <div class="col-lg-4">
+          <%= form.label :country, class: "form-label mb-2 mt-2" %>
+          <%= form.text_field :country, class: "form-control form-control-lg rouded-0" %>
+        </div>
+        <div class="col-lg-4">
+          <%= form.label :pincode, class: "form-label mb-2 mt-2" %>
+          <%= form.text_field :pincode, class: "form-control form-control-lg rouded-0" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card rounded-0 mt-4">
+    <div class="card-body">
+      <h2 class="fw-bold text-primary">Job Details</h2>
+      <div class="form-group row">
+        <div class="col-lg-4">
+          <%= form.label :title, class: "form-label mb-2 mt-2" %>
+          <%= form.text_field :title, class: "form-control form-control-lg rouded-0" %>
+        </div>
+        <div class="col-lg-4">
+          <%= form.label :employee_code, class: "form-label mb-2 mt-2" %>
+          <%= form.text_field :employee_code, class: "form-control form-control-lg rouded-0" %>
+        </div>
+        <div class="col-lg-4">
+          <%= form.label :date_of_joining, class: "form-label mb-2 mt-2" %>
+          <%= form.date_field :date_of_joining, class: "form-control form-control-lg rouded-0" %>
+        </div>
+        <div class="col-lg-4">
+          <%= form.label :gender, class: "form-label mb-2 mt-2" %>
+          <%= form.text_field :gender, class: "form-control form-control-lg rouded-0" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="form-group mt-3">
+    <%= form.submit class: "btn btn-primary rounded-0 btn-lg" %>
+    <%= link_to "Back to employees", admin_employees_path, class: "btn btn-outline-primary rounded-0 btn-lg" %>
+  </div>
+<% end %>
