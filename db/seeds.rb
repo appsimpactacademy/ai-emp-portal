@@ -28,3 +28,7 @@
 	)
 	puts "Employee #{employee.id} created successfully"
 end
+
+LeaveType::LEAVE_FULL_NAMES.each_with_index do |leave, index|
+	LeaveType.create(name: leave, short_name: LeaveType::LEAVE_SHORT_NAMES[index],description: LeaveType::LEAVE_DESCRIPTIONS[index])
+end
