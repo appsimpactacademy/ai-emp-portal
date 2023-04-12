@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Leave applications</h1>
+
+<div id="leave_applications">
+  <% @leave_applications.each do |leave_application| %>
+    <%= render leave_application %>
+    <p>
+      <%= link_to "Show this leave application", leave_application %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New leave application", new_leave_application_path %>

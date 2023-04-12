@@ -1,0 +1,45 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cl_granted: 1.5
+  ol_granted: 1.5
+  sl_granted: 1.5
+  pl_granted: 1.5
+  ml_granted: 1.5
+  el_granted: 1.5
+  cl_taken: 1.5
+  ol_taken: 1.5
+  el_taken: 1.5
+  sl_taken: 1.5
+  pl_taken: 1.5
+  ml_taken: 1.5
+  cl_available: 1.5
+  ol_available: 1.5
+  sl_available: 1.5
+  el_available: 1.5
+  pl_available: 1.5
+  ml_available: 1.5
+  year: 1
+  employee: one
+
+two:
+  cl_granted: 1.5
+  ol_granted: 1.5
+  sl_granted: 1.5
+  pl_granted: 1.5
+  ml_granted: 1.5
+  el_granted: 1.5
+  cl_taken: 1.5
+  ol_taken: 1.5
+  el_taken: 1.5
+  sl_taken: 1.5
+  pl_taken: 1.5
+  ml_taken: 1.5
+  cl_available: 1.5
+  ol_available: 1.5
+  sl_available: 1.5
+  el_available: 1.5
+  pl_available: 1.5
+  ml_available: 1.5
+  year: 1
+  employee: two

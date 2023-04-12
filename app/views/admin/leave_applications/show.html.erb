@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @leave_application %>
+
+<div>
+  <%= link_to "Edit this leave application", edit_leave_application_path(@leave_application) %> |
+  <%= link_to "Back to leave applications", leave_applications_path %>
+
+  <%= button_to "Destroy this leave application", @leave_application, method: :delete %>
+</div>

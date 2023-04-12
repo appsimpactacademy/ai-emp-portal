@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_04_035356) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_12_100123) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,6 +39,32 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_035356) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "employee_leave_summaries", force: :cascade do |t|
+    t.float "cl_granted"
+    t.float "ol_granted"
+    t.float "sl_granted"
+    t.float "pl_granted"
+    t.float "ml_granted"
+    t.float "el_granted"
+    t.float "cl_taken", default: 0.0
+    t.float "ol_taken", default: 0.0
+    t.float "el_taken", default: 0.0
+    t.float "sl_taken", default: 0.0
+    t.float "pl_taken", default: 0.0
+    t.float "ml_taken", default: 0.0
+    t.float "cl_available"
+    t.float "ol_available"
+    t.float "sl_available"
+    t.float "el_available"
+    t.float "pl_available"
+    t.float "ml_available"
+    t.integer "year"
+    t.integer "employee_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_employee_leave_summaries_on_employee_id"
+  end
+
   create_table "employees", force: :cascade do |t|
     t.string "first_name"
     t.string "middle_name"
@@ -61,6 +87,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_035356) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "leave_applications", force: :cascade do |t|
+    t.integer "employee_id", null: false
+    t.integer "leave_type_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.boolean "is_half_day"
+    t.string "leave_location"
+    t.string "contact"
+    t.text "remarks"
+    t.string "status", default: "pending"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_leave_applications_on_employee_id"
+    t.index ["leave_type_id"], name: "index_leave_applications_on_leave_type_id"
+  end
+
   create_table "leave_types", force: :cascade do |t|
     t.string "name"
     t.string "short_name"
@@ -71,4 +113,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_035356) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "employee_leave_summaries", "employees"
+  add_foreign_key "leave_applications", "employees"
+  add_foreign_key "leave_applications", "leave_types"
 end

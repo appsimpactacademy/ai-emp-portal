@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee: one
+  leave_type: one
+  start_date: 2023-04-04
+  end_date: 2023-04-04
+  is_half_day: false
+  leave_location: MyString
+  contact: MyString
+  remarks: MyText
+
+two:
+  employee: two
+  leave_type: two
+  start_date: 2023-04-04
+  end_date: 2023-04-04
+  is_half_day: false
+  leave_location: MyString
+  contact: MyString
+  remarks: MyText

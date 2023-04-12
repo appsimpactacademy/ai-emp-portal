@@ -13,6 +13,9 @@ class Employee < ApplicationRecord
 		'Junior Front End Engineer'
 	]
 
+	has_many :leave_applications, dependent: :nullify
+	has_many :employee_leave_summaries, dependent: :nullify
+
 	validates :first_name, :last_name, :primary_contact, :secondary_contact,
 			  :city, :state, :country, :pincode, :address_line_1, :address_line_2,
 			  :gender, :title, :employee_code, :date_of_birth, :date_of_joining,
