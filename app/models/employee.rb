@@ -36,4 +36,8 @@ class Employee < ApplicationRecord
 	def age
 		Date.today.year - date_of_birth.year
 	end
+
+	def current_leave_summary
+    	employee_leave_summaries.where(year: Date.current.year).last
+  	end
 end
