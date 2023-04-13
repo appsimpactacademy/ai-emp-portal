@@ -1,0 +1,14 @@
+<div class="col-lg-12">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="card rounded-0 text-center">
+        <div class="card-body">
+          <%= image_tag 'employee-dummy.jpg', class: 'img-fluid mx-auto d-block', style: "border-radius: 50%; border: 2px solid #317180;" %>
+          <p class="lead fw-bold mt-4"><%= @employee.full_name %></p>
+          <p class="lead fw-bold"><%= @employee.primary_contact %></p>
+          <p class="lead fw-bold"><%= @employee.email %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

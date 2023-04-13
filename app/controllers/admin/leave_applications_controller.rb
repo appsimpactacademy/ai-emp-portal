@@ -5,7 +5,9 @@ class Admin::LeaveApplicationsController < AdminController
     @leave_applications = LeaveApplication.all
   end
 
-  def show; end
+  def show
+    @leave_summary = @leave_application.employee.current_leave_summary
+  end
 
   def new
     @leave_application = LeaveApplication.new

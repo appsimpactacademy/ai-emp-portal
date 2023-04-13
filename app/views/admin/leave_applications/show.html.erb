@@ -48,9 +48,82 @@
         <%= @leave_application.remarks %>
       </p>
     </div>
+  </div>
 
-    <div class="col-lg-6">
-      <h2 class="fw-bold">Employee leave summary</h2>
+  <div class="row">
+    <h2 class="fw-bold">Employee leave summary</h2>
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <p class="lead fw-bold">Casual Leaves</p>
+        </div>
+        <div class="card-body">
+          <p class="lead"><strong>Granted: </strong><%= @leave_summary.cl_granted %></p>
+          <p class="lead"><strong>Taken: </strong><%= @leave_summary.cl_taken %></p>
+          <p class="lead"><strong>Available: </strong><%= @leave_summary.cl_available %></p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <p class="lead fw-bold">Sick Leaves</p>
+        </div>
+        <div class="card-body">
+          <p class="lead"><strong>Granted: </strong><%= @leave_summary.sl_granted %></p>
+          <p class="lead"><strong>Taken: </strong><%= @leave_summary.sl_taken %></p>
+          <p class="lead"><strong>Available: </strong><%= @leave_summary.sl_available %></p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <p class="lead fw-bold">Earned Leaves</p>
+        </div>
+        <div class="card-body">
+          <p class="lead"><strong>Granted: </strong><%= @leave_summary.el_granted %></p>
+          <p class="lead"><strong>Taken: </strong><%= @leave_summary.el_taken %></p>
+          <p class="lead"><strong>Available: </strong><%= @leave_summary.el_available %></p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <p class="lead fw-bold">Optional Leaves</p>
+        </div>
+        <div class="card-body">
+          <p class="lead"><strong>Granted: </strong><%= @leave_summary.ol_granted %></p>
+          <p class="lead"><strong>Taken: </strong><%= @leave_summary.ol_taken %></p>
+          <p class="lead"><strong>Available: </strong><%= @leave_summary.ol_available %></p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <% if @leave_application.employee.gender == 'Male' %>
+        <div class="card">
+          <div class="card-header">
+            <p class="lead fw-bold">Paternity Leaves</p>
+          </div>
+          <div class="card-body">
+            <p class="lead"><strong>Granted: </strong><%= @leave_summary.pl_granted %></p>
+            <p class="lead"><strong>Taken: </strong><%= @leave_summary.pl_taken %></p>
+            <p class="lead"><strong>Available: </strong><%= @leave_summary.pl_available %></p>
+          </div>
+        </div>
+      <% else %>
+        <div class="card">
+          <div class="card-header">
+            <p class="lead fw-bold">Maternity Leaves</p>
+          </div>
+          <div class="card-body">
+            <p class="lead"><strong>Granted: </strong><%= @leave_summary.ml_granted %></p>
+            <p class="lead"><strong>Taken: </strong><%= @leave_summary.ml_taken %></p>
+            <p class="lead"><strong>Available: </strong><%= @leave_summary.ml_available %></p>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 
