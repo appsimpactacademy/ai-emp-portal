@@ -16,25 +16,32 @@
     </thead>
     <tbody>
       <% @employees.each_with_index do |employee, index| %>
-        <tr>
-          <td><%= index + 1  %></td>
-          <td><%= employee.employee_code %></td>
-          <td><%= employee.name %></td>
-          <td><%= employee.email %></td>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Actions
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><%= link_to "View", admin_employee_path(employee), class: "dropdown-item" %></li>
-                <li><%= link_to "Edit", edit_admin_employee_path(employee), class: "dropdown-item" %></li>
-                <li><%= link_to "Delete", admin_employee_path(employee), class: "dropdown-item", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this employee?" } %></li>
-              </ul>
-            </div>
-          </td>
-        </tr>
+      <tr>
+        <td><%= index + 1  %></td>
+        <td><%= employee.employee_code %></td>
+        <td><%= employee.name %></td>
+        <td><%= employee.email %></td>
+        <td>
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Actions
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><%= link_to "View", admin_employee_path(employee), class: "dropdown-item" %></li>
+              <li><%= link_to "Edit", edit_admin_employee_path(employee), class: "dropdown-item" %></li>
+              <li><%= link_to "Delete", admin_employee_path(employee), class: "dropdown-item", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this employee?" } %></li>
+            </ul>
+          </div>
+        </td>
+      </tr>
       <% end %>
+      <div class="float-end mt-4">
+        <% if employee_signed_in? %>
+        <%= link_to 'Sign Out', destroy_employee_session_path, class: 'btn btn-primary btn-lg rounded-0', data: { turbo_method: :delete } %>
+        <% else %>
+        <%= link_to 'Sign In', new_employee_session_path, class: 'btn btn-primary btn-lg rounded-0'%>
+        <% end -%>
+      </div>
     </tbody>
   </table>
 

@@ -1,0 +1,49 @@
+<div class="container d-flex justify-content-center mt-5">
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <h2 class="text-center">Sign in</h2>
+        </div>
+      </div>
+      <div class="card-body">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-group">
+          <%= f.label :email_or_employee_code %><br />
+          <%= f.text_field :login, class: 'form-control rounded-0 mt-2 mb-2', placeholder: 'Enter Your Email or Employee Code' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "current-password", class: 'form-control rounded-0 mt-2 mb-2', placeholder: 'Enter Your Password' %>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+        <div class="form-group mt-2">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+        <% end %>
+
+        <div class="actions">
+          <%= f.submit "Log in", class: 'btn btn-primary rounded-0 mt-2' %><br>
+          <%= link_to "Forgot your password?", new_password_path(resource_name), class: 'btn btn-primary rounded-0 mt-2'%>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

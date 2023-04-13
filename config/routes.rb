@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :employees, controllers: {
+    sessions: 'employees/sessions',
+    passwords: 'employees/passwords',
+    confirmations: 'employees/confirmations'
+  }
+  
   root 'home#index'
 
   namespace :admin do 

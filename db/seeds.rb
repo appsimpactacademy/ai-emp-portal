@@ -51,6 +51,11 @@
 	end
 end
 
+Employee.all.each do |employee|
+	employee.update(password: "password #{employee.employee_code}")
+end
+
+
 LeaveType::LEAVE_FULL_NAMES.each_with_index do |leave, index|
 	LeaveType.create(name: leave, short_name: LeaveType::LEAVE_SHORT_NAMES[index],description: LeaveType::LEAVE_DESCRIPTIONS[index])
 end
