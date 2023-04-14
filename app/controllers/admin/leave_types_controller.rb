@@ -1,6 +1,11 @@
 class Admin::LeaveTypesController < AdminController
+  load_and_authorize_resource
   before_action :set_leave_type, only: %i[ show edit update destroy ]
 
+  def current_ability
+    @current_ability ||= ::Ability.new(current_employee)
+  end
+  
   def index
     @leave_types = LeaveType.all
   end

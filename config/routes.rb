@@ -17,4 +17,6 @@ Rails.application.routes.draw do
     get 'dashboard' => 'dashboard#index'
     get 'profile' => 'dashboard#profile'
   end 
+
+  
 end

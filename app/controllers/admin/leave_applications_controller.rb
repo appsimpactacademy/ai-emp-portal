@@ -1,5 +1,10 @@
 class Admin::LeaveApplicationsController < AdminController
+  load_and_authorize_resource
   before_action :set_leave_application, only: %i[ show edit update destroy ]
+
+  def current_ability
+    @current_ability ||= ::Ability.new(current_employee)
+  end
 
   def index
     @leave_applications = LeaveApplication.all
