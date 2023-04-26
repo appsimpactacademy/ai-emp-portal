@@ -23,10 +23,10 @@ class Employee < ApplicationRecord
 
   validates :first_name, :last_name, :primary_contact, :secondary_contact,
   :city, :state, :country, :pincode, :address_line_1, :address_line_2,
-  :gender, :title, :employee_code, :date_of_birth, :date_of_joining, :role,
+  :gender, :title, :employee_code, :date_of_birth, :date_of_joining,
   presence: true
 
-  validates :email, presence: true, uniqueness: true
+  # validates :email, presence: true, uniqueness: true÷
 
   attr_accessor :login
 

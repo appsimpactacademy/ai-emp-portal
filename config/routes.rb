@@ -13,7 +13,8 @@ Rails.application.routes.draw do
     resources :leave_applications
   end
 
-  namespace :employee do 
+  namespace :employee do
+    resources :leave_applications
     get 'dashboard' => 'dashboard#index'
     get 'profile' => 'dashboard#profile'
   end 

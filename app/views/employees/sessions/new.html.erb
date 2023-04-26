@@ -9,12 +9,12 @@
       <div class="card-body">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-group">
-          <%= f.label :email_or_employee_code %><br />
+          <%= f.label :email_or_employee_code %>
           <%= f.text_field :login, class: 'form-control rounded-0 mt-2 mb-2', placeholder: 'Enter Your Email or Employee Code' %>
         </div>
 
         <div class="form-group">
-          <%= f.label :password %><br />
+          <%= f.label :password %>
           <%= f.password_field :password, autocomplete: "current-password", class: 'form-control rounded-0 mt-2 mb-2', placeholder: 'Enter Your Password' %>
         </div>
 
@@ -26,7 +26,7 @@
         <% end %>
 
         <div class="actions">
-          <%= f.submit "Log in", class: 'btn btn-primary rounded-0 mt-2' %><br>
+          <%= f.submit "Log in", class: 'btn btn-primary rounded-0 mt-2' %>
           <%= link_to "Forgot your password?", new_password_path(resource_name), class: 'btn btn-primary rounded-0 mt-2'%>
         </div>
         <% end %>

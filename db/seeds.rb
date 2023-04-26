@@ -52,7 +52,7 @@
 end
 
 Employee.all.each do |employee|
-	employee.update(password: "password #{employee.employee_code}")
+	employee.update(password: "password#{employee.employee_code}")
 end
 
 

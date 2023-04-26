@@ -1,0 +1,37 @@
+<p>
+  <strong>Start date:</strong>
+  <%= @leave_application.start_date %>
+</p>
+
+<p>
+  <strong>To date:</strong>
+  <%= @leave_application.end_date %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%#= @leave_application.status %>
+</p>
+
+<p>
+  <strong>Remarks:</strong>
+  <%= @leave_application.remarks %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @leave_application.leave_location %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @leave_application.contact %>
+</p>
+
+<p>
+  <strong>Leave type:</strong>
+  <%= @leave_application.leave_type.name %>
+</p>
+
+<%#= link_to 'Edit', edit_employee_leave_application_path(@leave_application), data: { turbolinks: false } %>
+<%= link_to 'Back', employee_leave_applications_path, data: { turbolinks: false }, class: 'btn btn-outline-secondary my-2' %>
