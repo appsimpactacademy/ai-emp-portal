@@ -1,0 +1,25 @@
+<!-- Modal -->
+<div class="modal fade" id="leaveApplicationStatusModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="leaveApplicationStatusModalLabel">Update leave application status</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <%= form_with(model: [:admin, @leave_application], url: :update_status_admin_leave_application, id: 'leaveApplicationStatus') do |form| %>
+        <%= form.hidden_field :status, value: '', id: 'modal-status-text' %>
+        <div class="modal-body">
+          <div class="col-lg-12">
+            <div class="form-group">
+              <%= form.text_area :reason_for_status_change, class: "form-control form-control-lg", placeholder: "Write a reason to change the status" %>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary btn-lg" data-dismiss="modal">Cancel</button>
+          <%= form.submit "Update Leave Status", class: "btn btn-primary btn-lg" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

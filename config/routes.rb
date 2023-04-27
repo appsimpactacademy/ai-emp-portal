@@ -8,9 +8,12 @@ Rails.application.routes.draw do
   root 'home#index'
 
   namespace :admin do 
+    get 'dashboard' => 'dashboard#index'
     resources :employees
     resources :leave_types
-    resources :leave_applications
+    resources :leave_applications do
+      patch :update_status, on: :member
+    end
   end
 
   namespace :employee do

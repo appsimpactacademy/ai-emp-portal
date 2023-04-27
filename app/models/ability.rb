@@ -8,8 +8,8 @@ class Ability
     #
     # return unless employee.present?
     # can :read, :all
-      return unless employee.admin?
-      can :read, :all
+      # return unless employee.admin?
+      # can :read, :all
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.

@@ -4,7 +4,6 @@
   <h1>Employees</h1>
 
   <%= link_to "Create New employee", new_admin_employee_path, class: "btn btn-primary btn-lg mb-4 mt-4 rounded-0" %>
-  <%= link_to 'Apply for Leave', new_admin_leave_application_path, class: "btn btn-primary btn-lg mb-4 mt-4 rounded-0"  %>
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -36,13 +35,6 @@
         </td>
       </tr>
       <% end %>
-      <div class="float-end mt-4">
-        <% if employee_signed_in? %>
-        <%= link_to 'Sign Out', destroy_employee_session_path, class: 'btn btn-primary btn-lg rounded-0', data: { turbo_method: :delete } %>
-        <% else %>
-        <%= link_to 'Sign In', new_employee_session_path, class: 'btn btn-primary btn-lg rounded-0'%>
-        <% end -%>
-      </div>
     </tbody>
   </table>
 

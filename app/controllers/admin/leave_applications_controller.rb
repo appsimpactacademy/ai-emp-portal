@@ -1,6 +1,6 @@
 class Admin::LeaveApplicationsController < AdminController
-  load_and_authorize_resource
-  before_action :set_leave_application, only: %i[ show edit update destroy ]
+  # load_and_authorize_resource
+  before_action :set_leave_application, only: %i[ show edit update destroy update_status ]
 
   def current_ability
     @current_ability ||= ::Ability.new(current_employee)
@@ -45,6 +45,10 @@ class Admin::LeaveApplicationsController < AdminController
         format.json { render json: @leave_application.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def update_status
+    @leave_application.update(status: params[:leave_application][:status].downcase)
   end
 
   def destroy

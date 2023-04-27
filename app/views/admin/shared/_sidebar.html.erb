@@ -1,0 +1,30 @@
+ <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+  <div class="position-sticky pt-3">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <%= link_to admin_dashboard_path, class: "nav-link active", 'aria-current': "page" do %>
+          <span data-feather="home"></span>
+          Dashboard
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to admin_leave_applications_path, class: "nav-link" do %>
+          <span data-feather="file"></span>
+          Leave Application
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to admin_employees_path, class: "nav-link" do %>
+          <span data-feather="file"></span>
+          Employees
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to admin_leave_types_path, class: "nav-link" do %>
+          <span data-feather="file"></span>
+          Leave Type
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>

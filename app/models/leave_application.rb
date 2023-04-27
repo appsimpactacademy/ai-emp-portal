@@ -3,6 +3,11 @@ class LeaveApplication < ApplicationRecord
   belongs_to :employee
   belongs_to :leave_type
 
+  # scopes
+  scope :pending_leaves, -> {where(status: 'pending')}
+  scope :approved_leaves, -> {where(status: 'approved')}
+  scope :rejected_leaves, -> {where(status: 'rejected')}
+
   # validations
   validates :start_date, :end_date, :leave_location, :remarks, presence: true
   validates :end_date, comparison: { 
