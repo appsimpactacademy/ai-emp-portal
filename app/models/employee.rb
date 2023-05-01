@@ -26,7 +26,7 @@ class Employee < ApplicationRecord
   :gender, :title, :employee_code, :date_of_birth, :date_of_joining,
   presence: true
 
-  before_create :set_default_status
+  # before_create :set_default_status
 
   # validates :email, presence: true, uniqueness: true÷
 

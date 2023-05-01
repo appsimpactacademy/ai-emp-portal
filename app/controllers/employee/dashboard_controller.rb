@@ -2,6 +2,7 @@ class Employee::DashboardController < EmployeeController
   # before_action :authenticate_employee!
   layout 'employee'
   def index
+    @leave_applications = Employee.includes(:leave_applications).find(current_employee.id).leave_applications
   end
 
   def profile

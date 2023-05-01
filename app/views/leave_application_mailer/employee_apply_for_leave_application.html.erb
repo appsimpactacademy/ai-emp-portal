@@ -6,9 +6,7 @@
   </head>
   <body>
     <h2>Hello Admin,</h2>
-    <p>Leave application submitted by employee <%= @employee.full_name %></p>
-
-    <h4>Leave application details :</h4>
+    <p><%= @employee.full_name %> has applied for leave through our Employee Leave Management System. The details of the leave request are as follows:</p>
     <p>
       Leave apply date : <%= @leave_application.start_date %> TO <%= @leave_application.end_date %>
     </p>
@@ -22,8 +20,13 @@
       Location : <%= @leave_application.leave_location %>
     </p>
     <p>
-      Please click on below link for more details
+      The employee has submitted this request through our online leave management system, which you can access to review the request and take necessary action. You can approve or reject the request by logging in to the system and navigating to the appropriate section.
+
+      Or you can click on below link
+      <%= link_to "Leave Application", admin_leave_applications_url(@leave_application) %>
+    </p>  
+    <p>
+      Please note that the employee's leave balance and any relevant company policies have been taken into consideration while processing this request.
     </p>
-    <%= link_to "Leave Application", admin_leave_applications_url(@leave_application) %>
   </body>
 </html>

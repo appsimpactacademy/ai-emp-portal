@@ -3,7 +3,7 @@
     <div class="card shadow">
       <div class="card-body text-center">
         <h3>Leave Application</h3>
-        <h2><%= current_employee.leave_applications.count %></h2>
+        <h2><%= @leave_applications.count %></h2>
       </div>
     </div> 
   </div>
@@ -11,7 +11,7 @@
     <div class="card shadow">
       <div class="card-body text-center">
         <h3>Pending Leaves</h3>
-        <h2><%= current_employee.leave_applications.pending_leaves.count %></h2>
+        <h2><%= @leave_applications.pending_leaves.count %></h2>
       </div>
     </div> 
   </div>
@@ -19,7 +19,7 @@
     <div class="card shadow">
       <div class="card-body text-center">
         <h3>Approved Leaves</h3>
-        <h2><%= current_employee.leave_applications.approved_leaves.count %></h2>
+        <h2><%= @leave_applications.approved_leaves.count %></h2>
       </div>
     </div> 
   </div>
@@ -27,7 +27,7 @@
     <div class="card shadow">
       <div class="card-body text-center">
         <h3>Rejected Leaves</h3>
-        <h2><%= current_employee.leave_applications.rejected_leaves.count %></h2>
+        <h2><%= @leave_applications.rejected_leaves.count %></h2>
       </div>
     </div> 
   </div>

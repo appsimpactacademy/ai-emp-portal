@@ -48,7 +48,11 @@ class Admin::LeaveApplicationsController < AdminController
   end
 
   def update_status
-    @leave_application.update(status: params[:leave_application][:status].downcase)
+    @leave_application.status = params[:leave_application][:status].downcase
+    @leave_application.reason_for_status_change = params[:leave_application][:reason_for_status_change]
+    @leave_application.save(validate: false)
+    LeaveApplicationMailer.admin_change_leave_application_status(@leave_application, params[:leave_application][:status]).deliver_now
+    redirect_to admin_leave_application_path(@leave_application), notice: "Leave status has been updated successfully, will be notified to respective employee via email."
   end
 
   def destroy

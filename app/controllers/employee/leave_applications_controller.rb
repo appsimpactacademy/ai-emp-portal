@@ -4,7 +4,7 @@ class Employee::LeaveApplicationsController < EmployeeController
   # GET /leave_applications or /leave_applications.json
   
   def index
-    @leave_applications = current_employee.leave_applications.order(id: :desc)
+    @leave_applications = Employee.includes(:leave_applications).find(current_employee.id).leave_applications
   end
 
   # GET /leave_applications/1 or /leave_applications/1.json
@@ -71,6 +71,6 @@ class Employee::LeaveApplicationsController < EmployeeController
 
     # Only allow a list of trusted parameters through.
     def leave_application_params
-      params.require(:leave_application).permit(:start_date, :end_date, :remarks, :leave_location, :leave_type_id, :employee_id)
+      params.require(:leave_application).permit(:start_date, :end_date, :remarks, :leave_location, :leave_type_id, :employee_id, :is_half_day)
     end
 end

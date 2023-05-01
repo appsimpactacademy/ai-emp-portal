@@ -10,9 +10,9 @@ class LeaveApplication < ApplicationRecord
 
   # validations
   validates :start_date, :end_date, :leave_location, :remarks, presence: true
-  validates :end_date, comparison: { 
+  validates :end_date, if: :half_day, comparison: { 
     greater_than: :start_date, 
-    message: 'End date must be greater than start date' 
+    message: 'End date must be greater than start date'
   }
   # validates :start_date, comparison: {
   #   greater_than: Date.current,
@@ -28,12 +28,24 @@ class LeaveApplication < ApplicationRecord
   validate :check_ol_availability
   validate :check_pl_availability
   validate :check_ml_availability
+  validate :check_half_day_availability
 
   # callbacks
   after_save :update_employee_leave_summary
 
+  def half_day
+    is_half_day == false
+  end
+
   def total_leaves_applied
     (end_date - start_date).to_i
+  end
+
+  def check_half_day_availability
+    return if is_half_day == false
+    if start_date != end_date
+      errors.add(:you, 'start_date and end_date of the leave application must be the same')
+    end
   end
 
   def paternity_leave_check
@@ -113,28 +125,28 @@ class LeaveApplication < ApplicationRecord
     case leave_type.short_name
     when 'CL'
       cl_taken = leave_summary.cl_taken + total_leaves_applied
-      cl_available = leave_summary.cl_available - total_leaves_applied
-      leave_summary.update(cl_taken: cl_taken, cl_available: cl_available)
+      cl_available = is_half_day ? leave_summary.cl_available - 0.5 : leave_summary.cl_available - total_leaves_applied 
+      leave_summary.update(cl_taken: cl_taken, cl_available: cl_available) 
     when 'EL'
       el_taken = leave_summary.el_taken + total_leaves_applied
-      el_available = leave_summary.el_available - total_leaves_applied
+      el_available = is_half_day ? leave_summary.el_available - 0.5 : leave_summary.el_available - total_leaves_applied
       leave_summary.update(el_taken: el_taken, el_available: el_available)
     when 'SL'
       sl_taken = leave_summary.sl_taken + total_leaves_applied
-      sl_available = leave_summary.sl_available - total_leaves_applied
+      sl_available = is_half_day ? leave_summary.sl_available - 0.5 : leave_summary.sl_available - total_leaves_applied 
       leave_summary.update(sl_taken: sl_taken, sl_available: sl_available)
     when 'OL'
       ol_taken = leave_summary.ol_taken + total_leaves_applied
-      ol_available = leave_summary.ol_available - total_leaves_applied
+      ol_available = is_half_day ? leave_summary.ol_available - 0.5 : leave_summary.ol_available - total_leaves_applied
       leave_summary.update(ol_taken: ol_taken, ol_available: ol_available)
     when 'PL'
       pl_taken = leave_summary.pl_taken + total_leaves_applied
-      pl_available = leave_summary.pl_available - total_leaves_applied
+      pl_available = is_half_day ? leave_summary.pl_available - 0.5 : leave_summary.pl_available - total_leaves_applied
       leave_summary.update(pl_taken: pl_taken, pl_available: pl_available)
     when 'ML'
       ml_taken = leave_summary.ml_taken + total_leaves_applied
-      ml_available = leave_summary.ml_available - total_leaves_applied
-      leave_summary.update(ml_taken: ml_taken, ml_available: ml_available)
+      ml_available = is_half_day ? leave_summary.ml_available - 0.5 : leave_summary.ml_available - total_leaves_applied
+      leave_summary.update(ml_taken: ml_taken, ml_available: ml_available)  
     else
     end
   end
