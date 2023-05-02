@@ -20,24 +20,19 @@ class Employee < ApplicationRecord
 
   has_many :leave_applications, dependent: :nullify
   has_many :employee_leave_summaries, dependent: :nullify
+  has_many :comp_offs, dependent: :nullify
 
   validates :first_name, :last_name, :primary_contact, :secondary_contact,
   :city, :state, :country, :pincode, :address_line_1, :address_line_2,
   :gender, :title, :employee_code, :date_of_birth, :date_of_joining,
   presence: true
 
-  # before_create :set_default_status
-
-  # validates :email, presence: true, uniqueness: true÷
+  validates :email, presence: true, uniqueness: true
 
   attr_accessor :login
 
   def login
   	@login || self.employee_code || self.email
-  end
-
-  def set_default_status
-    self.status = 'pending'
   end
 
   def name

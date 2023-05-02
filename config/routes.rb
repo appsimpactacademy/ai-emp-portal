@@ -18,9 +18,13 @@ Rails.application.routes.draw do
 
   namespace :employee do
     resources :leave_applications
+    resources :comp_offs do
+      patch :update_status, on: :member
+      get :edit_status, on: :member
+    end
     get 'dashboard' => 'dashboard#index'
     get 'profile' => 'dashboard#profile'
-  end 
+  end
 
   
 end

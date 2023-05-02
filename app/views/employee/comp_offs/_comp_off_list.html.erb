@@ -1,0 +1,23 @@
+<tr id="compoff_<%= comp_off.id %>">
+  <td><%= comp_off.for_date %></td>
+  <td><%= comp_off.check_in %></td>
+  <td><%= comp_off.check_out %></td>
+  <td><span class="<%= status_color(comp_off) %>"><%= comp_off.status.titleize if comp_off.status.present? %></span></td>
+  <td>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Actions
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><%= link_to 'View', employee_comp_off_path(comp_off), class: "dropdown-item" %></li>
+        <li>
+          <% if comp_off.status == "pending" %>
+          <%= link_to 'Edit', edit_employee_comp_off_path(comp_off), class: "dropdown-item", remote: true %>
+
+          <%#= link_to 'Edit', edit_employee_comp_off_path(comp_off), class: "dropdown-item", data: { turbolinks: false } %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </td>
+</tr>

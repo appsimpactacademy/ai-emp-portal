@@ -2,50 +2,52 @@
   <div class="col-lg-12">
     <h3 class="bg-secondary text-center py-2 text-white">Leave Applications</h3>
     <% if @leave_applications.present? %>
-    <table class="table table-bordered mt-4 table-responsive-md">
-      <thead>
-        <tr>
-          <th>Start date</th>
-          <th>End date</th>
-          <th>Location</th>
-          <th>Leave type</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @leave_applications.each do |leave_application| %>
-        <tr>
-          <td><%= leave_application.start_date %></td>
-          <td><%= leave_application.end_date %></td>
-          <td><%= leave_application.leave_location %></td>
-          <td><%= leave_application.leave_type.name %></td>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Actions
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><%= link_to 'View', employee_leave_application_path(leave_application), class: "dropdown-item" %></li>
-                <li>
-                  <% if leave_application.status == "pending" %>
-                  <%= link_to 'Edit', edit_employee_leave_application_path(leave_application), class: "dropdown-item", data: { turbolinks: false } %>
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to 'Destroy', employee_leave_application_path(leave_application), method: :delete, data: { confirm: 'Are you sure?', turbolinks: false }, class: "dropdown-item" %></li>
-                </ul>
-              </div>
-            </td>
+      <table class="table table-bordered mt-4 table-responsive-md">
+        <thead>
+          <tr>
+            <th>Start date</th>
+            <th>End date</th>
+            <th>Location</th>
+            <th>Leave type</th>
+            <th colspan="3"></th>
           </tr>
+        </thead>
+
+        <tbody>
+          <% @leave_applications.each do |leave_application| %>
+            <tr>
+              <td><%= leave_application.start_date %></td>
+              <td><%= leave_application.end_date %></td>
+              <td><%= leave_application.leave_location %></td>
+              <td><%= leave_application.leave_type.name %></td>
+              <td>
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Actions
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><%= link_to 'View', employee_leave_application_path(leave_application), class: "dropdown-item" %></li>
+                    <li>
+                      <% if leave_application.status == "pending" %>
+                      <%= link_to 'Edit', edit_employee_leave_application_path(leave_application), class: "dropdown-item", data: { turbolinks: false } %>
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to 'Destroy', employee_leave_application_path(leave_application), method: :delete, data: { confirm: 'Are you sure?', turbolinks: false }, class: "dropdown-item" %>
+                        
+                    </li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
           <% end %>
         </tbody>
       </table>
-      <% else %>
+    <% else %>
       <h3 class="text-center p-2 text-secondary">
         Data is not available
       </h3>
-      <% end %>
-      <%= link_to 'Apply New Leave', new_employee_leave_application_path, class: "btn btn-primary btn-lg mt-3", data: { turbolinks: false } %>
-    </div>
+    <% end %>
+    <%= link_to 'Apply New Leave', new_employee_leave_application_path, class: "btn btn-primary btn-lg mt-3", data: { turbolinks: false } %>
   </div>
+</div>

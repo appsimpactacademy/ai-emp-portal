@@ -14,10 +14,10 @@
         <% end %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <%= link_to employee_comp_offs_path, class: "nav-link" do %>
           <span data-feather="shopping-cart"></span>
           Comp Off
-        </a>
+        <% end %>
       </li>
       <li class="nav-item">
         <%= link_to employee_profile_path, class: "nav-link" do %>

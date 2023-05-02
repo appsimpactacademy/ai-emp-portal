@@ -32,6 +32,12 @@ class LeaveApplication < ApplicationRecord
 
   # callbacks
   after_save :update_employee_leave_summary
+  before_create :set_default_status
+
+
+  def set_default_status
+    self.status = 'pending'
+  end
 
   def half_day
     is_half_day == false
