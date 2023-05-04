@@ -1,3 +1,14 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 @import 'custom';
+@import 'custom_theme/css/dark/loader';
+@import 'custom_theme/css/light/plugins';
+@import 'custom_theme/css/dark/plugins';
+@import 'custom_theme/css/light/authentication/auth-boxed';
+@import 'custom_theme/css/dark/authentication/auth-boxed';
+@import 'custom_theme/css/dark/main';
+@import 'custom_theme/css/light/main';
+@import 'custom_theme/css/morden/dark/structure';
+@import 'custom_theme/css/morden/light/structure';
+@import 'custom_theme/css/dark/dashboard/dash_1';
+@import 'custom_theme/css/light/dashboard/dash_1';
