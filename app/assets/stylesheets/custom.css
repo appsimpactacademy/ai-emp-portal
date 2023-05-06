@@ -13,3 +13,7 @@
   background-color: #dc3545;
   border-color: #dc3545;
 }
+.main-nav .navbar-nav {
+  margin: 0 auto !important;
+  margin-right: 0px !important;
+}

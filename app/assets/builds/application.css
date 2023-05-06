@@ -5,17 +5,6 @@
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-@import url("../../../../src/assets/css/light/main.css");
-@import url("../../../../src/assets/css/light/custom.css");
-@import url("../../../../src/plugins/css/light/perfect-scrollbar/perfect-scrollbar.css");
-@import url("../../../../src/plugins/src/waves/waves.min.css");
-@import url("./structure.css");
-@import "../../../../src/plugins/src/highlight/styles/monokai-sublime.css";
-@import url("../../../../src/assets/css/dark/main.css");
-@import url("../../../../src/assets/css/dark/custom.css");
-@import url("../../../../src/plugins/css/dark/perfect-scrollbar/perfect-scrollbar.css");
-@import url("./structure.css");
-@import "../../../../src/plugins/src/highlight/styles/monokai-sublime.css";
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -18802,6 +18791,11 @@ textarea.form-control-lg {
   border-color: #dc3545;
 }
 
+.main-nav .navbar-nav {
+  margin: 0 auto !important;
+  margin-right: 0px !important;
+}
+
 /*
 	===============================
 			@Import	Function
@@ -18845,22 +18839,6 @@ body.dark .spinner-grow {
 }
 
 
-/*
-    Importing highlight.js CSS code 
-
-    Just for demo purpose only
-
-	@Note:-  monokai-sublime.css stylesheet is for highliting the code;
-
-*/
-/*
-    Importing highlight.js CSS code 
-
-    Just for demo purpose only
-
-	@Note:-  monokai-sublime.css stylesheet is for highliting the code;
-
-*/
 /*
 	===============================
 			@Import	Function
