@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_13_085814) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_02_072930) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,6 +39,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_13_085814) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "comp_offs", force: :cascade do |t|
+    t.date "for_date"
+    t.text "description"
+    t.string "status"
+    t.text "reason_to_change_status"
+    t.string "check_in"
+    t.string "check_out"
+    t.integer "employee_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_comp_offs_on_employee_id"
+  end
+
   create_table "employee_leave_summaries", force: :cascade do |t|
     t.float "cl_granted"
     t.float "ol_granted"
@@ -62,6 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_13_085814) do
     t.integer "employee_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "comp_off_leaves_count"
     t.index ["employee_id"], name: "index_employee_leave_summaries_on_employee_id"
   end
 
@@ -115,6 +129,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_13_085814) do
     t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "reason_for_status_change"
     t.index ["employee_id"], name: "index_leave_applications_on_employee_id"
     t.index ["leave_type_id"], name: "index_leave_applications_on_leave_type_id"
   end
@@ -129,6 +144,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_13_085814) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comp_offs", "employees"
   add_foreign_key "employee_leave_summaries", "employees"
   add_foreign_key "leave_applications", "employees"
   add_foreign_key "leave_applications", "leave_types"

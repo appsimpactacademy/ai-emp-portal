@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   devise_for :employees, controllers: {
     sessions: 'employees/sessions',
     passwords: 'employees/passwords',
-    confirmations: 'employees/confirmations'
+    confirmations: 'employees/confirmations',
+    registrations: 'employees/registrations'
   }
   
   root 'home#index'

@@ -1,18 +1,47 @@
-<div class="row mt-5">
-  <div class="col-md-3">
-    <div class="card shadow">
-      <div class="card-body text-center">
-        <h3>Leave Type</h3>
-        <h2><%= LeaveType.count %></h2>
-      </div>
-    </div>  
-  </div>
-  <div class="col-md-3">
-    <div class="card shadow">
-      <div class="card-body text-center">
-        <h3>Leave Application</h3>
-        <h2><%= LeaveApplication.count %></h2>
-      </div>
-    </div> 
-  </div>
+<!-- BREADCRUMB -->
+<div class="page-meta">
+  <nav class="breadcrumb-style-one" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">App</a></li>
+      <li class="breadcrumb-item"><a href="#">Blog</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Create</li>
+    </ol>
+  </nav>
 </div>
+<!-- /BREADCRUMB -->
+<div class="row layout-top-spacing">
+  <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
+    <div class="widget widget-card-four">
+      <div class="widget-content">
+        <div class="w-header">
+          <div class="w-info">
+            <h6 class="value">Leave Type</h6>
+          </div>
+        </div>
+        <div class="w-content">
+          <div class="w-info">
+            <p class="value"><%= LeaveType.count %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+  <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
+    <div class="widget widget-card-four">
+      <div class="widget-content">
+        <div class="w-header">
+          <div class="w-info">
+            <h6 class="value">Leave Application</h6>
+          </div>
+        </div>
+        <div class="w-content">
+          <div class="w-info">
+            <p class="value"><%= LeaveApplication.count %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
+

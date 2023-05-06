@@ -11,16 +11,26 @@
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
   </head>
 
-  <body>
+  <body class="layout-boxed alt-menu dark">
+    <!-- BEGIN LOADER -->
+    <!-- <div id="load_screen"> <div class="loader"> <div class="loader-content">
+      <div class="spinner-grow align-self-center"></div>
+    </div></div></div> -->
+    <!--  END LOADER -->
     <%= render 'employee/shared/header' %>
-    <div class="container-fluid">
-      <div class="row">
-        <%= render 'employee/shared/sidebar' %>
-        <main class="col-md-9 ms-sm-auto mt-5 col-lg-10 px-md-4" style="min-height: 692px;">
-          <%= render 'shared/flash' %>
-          <%= yield %>
-        </main>
-      </div>
+    <div class="main-container " id="container">
+      <div class="overlay"></div>
+      <div class="search-overlay"></div>
+      <%= render 'employee/shared/sidebar' %>
+      <div id="content" class="main-content">
+        <div class="layout-px-spacing">
+          <div class="middle-content container-xxl p-0">
+            <%= render 'shared/flash' %>
+            <%= yield %>
+          </div>
+        </div>
+        <%= render 'employee/shared/footer' %>
+      </div>    
     </div>
   </body>
 </html>
