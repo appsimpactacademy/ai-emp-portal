@@ -1,30 +1,46 @@
-<h3 class="bg-secondary text-center py-2 text-white">Comp Offs</h3>
+<div>
+  <%= link_to 'New Comp Off', new_employee_comp_off_path, class: "btn btn-primary  float-end", remote: true %>
+</div>
+<!-- BREADCRUMB -->
+<div class="page-meta">
+  <nav class="breadcrumb-style-one" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">Comp Off</li>
+    </ol>
+  </nav>
+</div>
+<!-- /BREADCRUMB -->
 
-<% if @comp_offs.present? %>
-  <table class="table table-bordered mt-4 table-responsive-md">
-    <thead>
-      <tr>
-        <th>For date</th>
-        <th>Check in</th>
-        <th>Check out</th>
-        <th>Status</th>
-        <th></th>
-      </tr>
-    </thead>
 
-    <tbody id="compoffbody">
-      <% @comp_offs.each do |comp_off| %>
-        <%= render 'comp_off_list', comp_off: comp_off %>
+
+<div class="row layout-top-spacing">
+  <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+    <div class="widget-content widget-content-area br-8">
+      <% if @comp_offs.present? %>
+      <table id="zero-config" class="table dt-table-hover" style="width:100%">
+        <thead>
+          <tr>
+            <th>For date</th>
+            <th>Check in</th>
+            <th>Check out</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="compoffbody">
+          <% @comp_offs.each do |comp_off| %>
+          <%= render 'comp_off_list', comp_off: comp_off %>
+          <% end %>
+        </tbody>
+      </table>
+      <% else %>
+      <h3 class="text-center p-2 text-secondary">
+        Data is not available
+      </h3>
       <% end %>
-    </tbody>
-  </table>
-<% else %>
-  <h3 class="text-center p-2 text-secondary">
-    Data is not available
-  </h3>
-<% end %>
-
-<%= link_to 'New Comp Off', new_employee_comp_off_path, class: "btn btn-primary btn-lg mt-3", remote: true %>
+    </div>
+  </div>
+</div>
 
 <!-- New Modal -->
 <div class="modal" id="EmployeeCompOffModal" tabindex="-1" role="dialog" aria-labelledby="EmployeeCompOffModalLabel" aria-hidden="true">

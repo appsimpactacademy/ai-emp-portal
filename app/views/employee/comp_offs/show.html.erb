@@ -22,48 +22,28 @@
         <div class="user-info">
           <%#= image_tag "profile-3.jpeg", alt:"avatar", style: 'border-radius:20%;' %>
           <p>
-            <strong>Start date:</strong>
-            <%= @leave_application.start_date %>
+            <strong>For date:</strong>
+            <%= @comp_off.for_date %>
           </p>
 
           <p>
-            <strong>To date:</strong>
-            <%= @leave_application.end_date %>
+            <strong>Check In:</strong>
+            <%= @comp_off.check_in %>
           </p>
 
           <p>
-            <strong>Status:</strong>
-            <%#= @leave_application.status %>
-          </p>
-
-          <p>
-            <strong>Remarks:</strong>
-            <%= @leave_application.remarks %>
-          </p>
-
-          <p>
-            <strong>Location:</strong>
-            <%= @leave_application.leave_location %>
-          </p>
-
-          <p>
-            <strong>Contact:</strong>
-            <%= @leave_application.contact %>
-          </p>
-
-          <p>
-            <strong>Leave type:</strong>
-            <%= @leave_application.leave_type.name %>
+            <strong>Check Out:</strong>
+            <%= @comp_off.check_out %>            
           </p>
 
           <p>
             <strong>Status:</strong>
-            <span class="<%= status_color(@leave_application) %> p-2"><%= @leave_application.status %></span>
+            <span class="<%= status_color(@comp_off) %> p-2"><%= @comp_off.status %></span>
           </p>
         </div>
         <div>
           <%#= link_to 'Edit', edit_employee_leave_application_path(@leave_application), data: { turbolinks: false } %>
-          <%= link_to 'Back', employee_leave_applications_path, data: { turbolinks: false }, class: 'btn btn-outline-secondary my-2' %>
+          <%= link_to 'Back', employee_comp_offs_path, class: 'btn btn-outline-secondary my-2' %>
         </div>
       </div>
     </div>

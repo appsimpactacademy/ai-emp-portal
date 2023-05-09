@@ -1,12 +1,35 @@
-<div class="col-lg-12">
-  <p style="color: green"><%= notice %></p>
+<p style="color: green"><%= notice %></p>
+<!-- BREADCRUMB -->
+<div class="page-meta">
+  <nav class="breadcrumb-style-one" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Users</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Profile</li>
+    </ol>
+  </nav>
+</div>
+<!-- /BREADCRUMB -->
 
-  <%= render @employee %>
+<div class="row layout-spacing ">
 
-  <div>
-    <%= link_to "Edit", edit_admin_employee_path(@employee), class: "btn btn-primary" %>
-    <%= link_to "Back", admin_employees_path, class: "btn btn-outline-primary" %>
+  <!-- Content -->
+  <div class="col-xl-5 col-lg-12 col-md-12 col-sm-12 layout-top-spacing">
+    <div class="user-profile">
+      <div class="widget-content widget-content-area">
+        <div class="d-flex justify-content-between">
+          <h3 class="">Profile</h3>
+        </div>
+        <div class="user-info">
+          <%#= image_tag "profile-3.jpeg", alt:"avatar", style: 'border-radius:20%;' %>
+          <p class="mt-3"><%= render @employee %></p>
+        </div>
+        <div>
+          <%= link_to "Edit", edit_admin_employee_path(@employee), class: "btn btn-primary" %>
+          <%= link_to "Back", admin_employees_path, class: "btn btn-outline-primary" %>
 
-    <%= link_to "Delete", admin_employee_path(@employee), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
-  </div>
+          <%= link_to "Delete", admin_employee_path(@employee), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+        </div>
+      </div>
+    </div>
+  </div>      
 </div>
