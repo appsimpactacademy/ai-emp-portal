@@ -7,7 +7,7 @@ class Admin::LeaveApplicationsController < AdminController
   end
 
   def index
-    @leave_applications = LeaveApplication.all
+    @leave_applications = LeaveApplication.all.page(params[:page])
   end
 
   def show

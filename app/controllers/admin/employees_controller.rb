@@ -7,7 +7,7 @@ class Admin::EmployeesController < AdminController
   end
 
   def index
-    @employees = Employee.all
+    @employees = Employee.all.page(params[:page])
   end
 
   def show; end

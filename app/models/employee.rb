@@ -1,4 +1,7 @@
 class Employee < ApplicationRecord
+
+  paginates_per 10
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -69,5 +72,28 @@ class Employee < ApplicationRecord
   		role == role_name
   	end
   end
+
+
+  def self.current_month_birthdays
+    #where('EXTRACT(month from date_of_birth) = ?', Date.today.strftime('%m'))
+    where("strftime('%m', date_of_birth) = ?", Date.today.strftime('%m'))
+  end
+
+  def self.current_week_birthdays
+   today = Date.today
+   start_of_week = today.beginning_of_week
+   end_of_week = today.end_of_week
+   where("date_of_birth BETWEEN ? AND ?", start_of_week, end_of_week)
+ end
+
+ def self.tomorrow_birthdays
+  tomorrow = Date.today
+  where("date_of_birth = DATE(?, '+1 day')", tomorrow)
+end
+
+def self.today_birthdays
+  today = Date.today
+  where("date_of_birth = DATE(?)", today)
+end
 
 end

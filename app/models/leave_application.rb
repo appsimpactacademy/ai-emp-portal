@@ -1,4 +1,7 @@
 class LeaveApplication < ApplicationRecord
+  
+  paginates_per 10
+  
   # associations
   belongs_to :employee
   belongs_to :leave_type
