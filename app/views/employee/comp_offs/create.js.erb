@@ -1,0 +1,7 @@
+<% if @comp_off.errors.any? %>
+  $("#EmployeeCompOffForm").html("<%= escape_javascript render('form', comp_off: @comp_off) %>");
+<% else %>
+  $('#compoffbody').prepend("<%= escape_javascript render('comp_off_list', comp_off: @comp_off)%>");
+<% end %>
+$('#EmployeeCompOffModal').modal('hide');
+$('#flash').html("<%= escape_javascript render('shared/flash') %>");

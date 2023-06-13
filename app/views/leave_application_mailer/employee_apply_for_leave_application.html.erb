@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2>Hello Admin,</h2>
+    <p><%= @employee.full_name %> has applied for leave through our Employee Leave Management System. The details of the leave request are as follows:</p>
+    <p>
+      Leave apply date : <%= @leave_application.start_date %> TO <%= @leave_application.end_date %>
+    </p>
+    <p>
+      Leave Type : <%= @leave_application.leave_type.name %>
+    </p>
+    <p>
+      Reason of leave : <%= @leave_application.remarks %>
+    </p>
+    <p>
+      Location : <%= @leave_application.leave_location %>
+    </p>
+    <p>
+      The employee has submitted this request through our online leave management system, which you can access to review the request and take necessary action. You can approve or reject the request by logging in to the system and navigating to the appropriate section.
+
+      Or you can click on below link
+      <%= link_to "Leave Application", admin_leave_applications_url(@leave_application) %>
+    </p>  
+    <p>
+      Please note that the employee's leave balance and any relevant company policies have been taken into consideration while processing this request.
+    </p>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AiEmpPortal</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+  </head>
+
+  <body class="layout-boxed alt-menu dark">
+    <!-- BEGIN LOADER -->
+    <!-- <div id="load_screen"> <div class="loader"> <div class="loader-content">
+      <div class="spinner-grow align-self-center"></div>
+    </div></div></div> -->
+    <!--  END LOADER -->
+    <%= render 'admin/shared/header' %>
+    <div class="main-container " id="container">
+      <div class="overlay"></div>
+      <div class="search-overlay"></div>
+      <%= render 'admin/shared/sidebar' %>
+      <div id="content" class="main-content">
+        <div class="layout-px-spacing">
+          <div class="middle-content container-xxl p-0">
+            <%= render 'shared/flash' %>
+            <%= yield %>
+          </div>
+        </div>
+        <%= render 'admin/shared/footer' %>
+      </div>    
+    </div>
+  </body>
+</html>

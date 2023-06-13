@@ -1,8 +1,13 @@
 class Admin::EmployeesController < AdminController
+  # load_and_authorize_resource
   before_action :set_employee, only: %i[ show edit update destroy ]
 
+ def current_ability
+    @current_ability ||= ::Ability.new(current_employee)
+  end
+
   def index
-    @employees = Employee.all
+    @employees = Employee.all.page(params[:page])
   end
 
   def show; end

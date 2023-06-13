@@ -1,0 +1,36 @@
+<div class="auth-container d-flex">
+  <div class="container mx-auto align-self-center">
+    <div class="row">
+      <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-8 col-12 d-flex flex-column align-self-center mx-auto">
+        <div class="card mt-3 mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12 mb-3">
+                <h2>Forgot your password?</h2>
+                <p>Enter your password</p>
+              </div>
+              <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+              <%= render "employees/shared/error_messages", resource: resource %>
+
+              <div class="col-12">
+                <div class="form-group mb-4">
+                  <%= f.label :email %><br />
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control mt-2', placeholder: 'Enter Your Email Address' %>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="actions mb-4">
+                  <%= f.submit "Send me reset password instructions", class: 'btn btn-secondary w-100 mt-3' %><br>
+                  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class: 'btn btn-secondary w-100 mt-3' %><br>
+                  <%= link_to "Log in", new_session_path(resource_name), class: 'btn btn-secondary w-100 mt-3'  %>
+                </div>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

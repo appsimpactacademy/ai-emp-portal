@@ -1,0 +1,78 @@
+<p style="color: green"><%= notice %></p>
+<!-- BREADCRUMB -->
+<!-- <div class="page-meta">
+  <nav class="breadcrumb-style-one" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Users</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Profile</li>
+    </ol>
+  </nav>
+</div> -->
+<!-- /BREADCRUMB -->
+
+<div class="row layout-spacing ">
+
+  <!-- Content -->
+  <div class="col-xl-5 col-lg-12 col-md-12 col-sm-12 layout-top-spacing">
+    <div class="user-profile">
+      <div class="widget-content widget-content-area">
+        <div class="d-flex justify-content-between">
+          <!-- <h3 class="">Profile</h3> -->
+        </div>
+        <div class="user-info">
+          <%#= image_tag "profile-3.jpeg", alt:"avatar", style: 'border-radius:20%;' %>
+          <p>
+            <strong>Start date:</strong>
+            <%= @leave_application.start_date %>
+          </p>
+
+          <p>
+            <strong>To date:</strong>
+            <%= @leave_application.end_date %>
+          </p>
+
+          <p>
+            <strong>Status:</strong>
+            <%#= @leave_application.status %>
+          </p>
+
+          <p>
+            <strong>Remarks:</strong>
+            <%= @leave_application.remarks %>
+          </p>
+
+          <p>
+            <strong>Location:</strong>
+            <%= @leave_application.leave_location %>
+          </p>
+
+          <p>
+            <strong>Contact:</strong>
+            <%= @leave_application.contact %>
+          </p>
+
+          <p>
+            <strong>Leave type:</strong>
+            <%= @leave_application.leave_type.name %>
+          </p>
+
+          <p>
+            <strong>Status:</strong>
+            <span class="<%= status_color(@leave_application) %> p-2"><%= @leave_application.status %></span>
+          </p>
+        </div>
+        <div>
+          <%#= link_to 'Edit', edit_employee_leave_application_path(@leave_application), data: { turbolinks: false } %>
+          <%= link_to 'Back', employee_leave_applications_path, data: { turbolinks: false }, class: 'btn btn-outline-secondary my-2' %>
+        </div>
+      </div>
+    </div>
+  </div>      
+</div>
+
+
+
+
+
+
+

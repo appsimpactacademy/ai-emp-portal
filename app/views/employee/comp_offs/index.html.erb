@@ -1,0 +1,65 @@
+<div>
+  <%= link_to 'New Comp Off', new_employee_comp_off_path, class: "btn btn-primary  float-end", remote: true %>
+</div>
+<!-- BREADCRUMB -->
+<div class="page-meta">
+  <nav class="breadcrumb-style-one" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">Comp Off</li>
+    </ol>
+  </nav>
+</div>
+<!-- /BREADCRUMB -->
+
+
+
+<div class="row layout-top-spacing">
+  <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+    <div class="widget-content widget-content-area br-8">
+      <% if @comp_offs.present? %>
+      <table id="zero-config" class="table dt-table-hover" style="width:100%">
+        <thead>
+          <tr>
+            <th>For date</th>
+            <th>Check in</th>
+            <th>Check out</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="compoffbody">
+          <% @comp_offs.each do |comp_off| %>
+          <%= render 'comp_off_list', comp_off: comp_off %>
+          <% end %>
+        </tbody>
+      </table>
+      <% else %>
+      <h3 class="text-center p-2 text-secondary">
+        Data is not available
+      </h3>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- New Modal -->
+<div class="modal" id="EmployeeCompOffModal" tabindex="-1" role="dialog" aria-labelledby="EmployeeCompOffModalLabel" aria-hidden="true">
+  <%#= render 'form' %>
+</div>
+
+
+<!-- Show Modal -->
+<div class="modal fade" id="showEmployeeCompOffModal" tabindex="-1" role="dialog" aria-labelledby="showEmployeeCompOffModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="showEmployeeCompOffModalLabel">Show Comp Off</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="showEmployeeCompOffDetails"></div>
+    </div>
+  </div>
+</div>
+

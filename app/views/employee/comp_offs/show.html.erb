@@ -1,0 +1,58 @@
+<p style="color: green"><%= notice %></p>
+<!-- BREADCRUMB -->
+<!-- <div class="page-meta">
+  <nav class="breadcrumb-style-one" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Users</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Profile</li>
+    </ol>
+  </nav>
+</div> -->
+<!-- /BREADCRUMB -->
+
+<div class="row layout-spacing ">
+
+  <!-- Content -->
+  <div class="col-xl-5 col-lg-12 col-md-12 col-sm-12 layout-top-spacing">
+    <div class="user-profile">
+      <div class="widget-content widget-content-area">
+        <div class="d-flex justify-content-between">
+          <!-- <h3 class="">Profile</h3> -->
+        </div>
+        <div class="user-info">
+          <%#= image_tag "profile-3.jpeg", alt:"avatar", style: 'border-radius:20%;' %>
+          <p>
+            <strong>For date:</strong>
+            <%= @comp_off.for_date %>
+          </p>
+
+          <p>
+            <strong>Check In:</strong>
+            <%= @comp_off.check_in %>
+          </p>
+
+          <p>
+            <strong>Check Out:</strong>
+            <%= @comp_off.check_out %>            
+          </p>
+
+          <p>
+            <strong>Status:</strong>
+            <span class="<%= status_color(@comp_off) %> p-2"><%= @comp_off.status %></span>
+          </p>
+        </div>
+        <div>
+          <%#= link_to 'Edit', edit_employee_leave_application_path(@leave_application), data: { turbolinks: false } %>
+          <%= link_to 'Back', employee_comp_offs_path, class: 'btn btn-outline-secondary my-2' %>
+        </div>
+      </div>
+    </div>
+  </div>      
+</div>
+
+
+
+
+
+
+

@@ -1,8 +1,13 @@
 class Admin::LeaveApplicationsController < AdminController
-  before_action :set_leave_application, only: %i[ show edit update destroy ]
+  # load_and_authorize_resource
+  before_action :set_leave_application, only: %i[ show edit update destroy update_status ]
+
+  def current_ability
+    @current_ability ||= ::Ability.new(current_employee)
+  end
 
   def index
-    @leave_applications = LeaveApplication.all
+    @leave_applications = LeaveApplication.all.page(params[:page])
   end
 
   def show
@@ -40,6 +45,14 @@ class Admin::LeaveApplicationsController < AdminController
         format.json { render json: @leave_application.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def update_status
+    @leave_application.status = params[:leave_application][:status].downcase
+    @leave_application.reason_for_status_change = params[:leave_application][:reason_for_status_change]
+    @leave_application.save(validate: false)
+    LeaveApplicationMailer.admin_change_leave_application_status(@leave_application, params[:leave_application][:status]).deliver_now
+    redirect_to admin_leave_application_path(@leave_application), notice: "Leave status has been updated successfully, will be notified to respective employee via email."
   end
 
   def destroy

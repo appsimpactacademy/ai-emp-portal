@@ -14,21 +14,21 @@
   <div class="form-group row">
     <div class="col-lg-6">
       <%= form.label :name, class: "form-label mb-2 mt-2" %>
-      <%= form.select :name, options_for_select(LeaveType::LEAVE_FULL_NAMES, selected: leave_type.name), {}, {class: "form-select form-select-lg rouded-0"} %>
+      <%= form.select :name, options_for_select(LeaveType::LEAVE_FULL_NAMES, selected: leave_type.name), {}, {class: "form-select form-select-lg"} %>
     </div>
     <div class="col-lg-6">
       <%= form.label :short_name, class: "form-label mb-2 mt-2" %>
-      <%= form.select :short_name, options_for_select(LeaveType::LEAVE_SHORT_NAMES, selected: leave_type.short_name), {}, {class: "form-select form-select-lg rouded-0"} %>
+      <%= form.select :short_name, options_for_select(LeaveType::LEAVE_SHORT_NAMES, selected: leave_type.short_name), {}, {class: "form-select form-select-lg"} %>
     </div>
   </div>
 
   <div>
     <%= form.label :description, class: "form-label mb-2 mt-2" %>
-    <%= form.text_area :description, class: "form-control form-control-lg rouded-0" %>
+    <%= form.text_area :description, class: "form-control form-control-lg" %>
   </div>
 
   <div class="form-group mt-3">
-    <%= form.submit class: "btn btn-primary rounded-0 btn-lg" %>
-    <%= link_to "Back to leave types", admin_leave_types_path, class: "btn btn-outline-primary rounded-0 btn-lg" %>
+    <%= form.submit class: "btn btn-primary" %>
+    <%= link_to "Back to leave types", admin_leave_types_path, class: "btn btn-outline-primary" %>
   </div>
 <% end %>

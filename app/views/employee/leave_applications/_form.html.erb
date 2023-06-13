@@ -1,0 +1,58 @@
+<%= form_with(model: [:employee, leave_application], id: 'leaveApplication' ) do |form| %>
+  <% if leave_application.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(leave_application.errors.count, "error") %> prohibited this leave_application from being saved:</h2>
+
+      <ul>
+        <% leave_application.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group row">
+    <%= form.hidden_field :employee_id, value: current_employee.id %>
+    <div class="col-lg-6">
+      <%= form.label :leave_type_id, class: "form-label mb-2 mt-2" %>
+      <%= form.select :leave_type_id, options_for_select(LeaveType.pluck(:name, :id), selected: leave_application.leave_type_id), {prompt: 'Select leave type'}, {class: "form-select form-select-lg rouded-0"} %>
+    </div>
+    <div class="col-lg-6">
+      <%= form.label :leave_location, class: "form-label mb-2 mt-2" %>
+      <%= form.text_field :leave_location, class: "form-control form-control-lg rouded-0" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-lg-6">
+      <%= form.label :from, class: "form-label mb-2 mt-2" %>
+      <%= form.date_field :start_date, class: "form-control form-control-lg rouded-0" %>
+    </div>
+    <div class="col-lg-6">
+      <%= form.label :to, class: "form-label mb-2 mt-2" %>
+      <%= form.date_field :end_date, class: "form-control form-control-lg rouded-0" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-lg-6">
+      <%= form.label :contact, class: "form-label mb-2 mt-2" %>
+      <%= form.text_field :contact, class: "form-control form-control-lg rouded-0" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :remarks, class: "form-label mb-2 mt-2" %>
+    <%= form.text_area :remarks, class: "form-control form-control-lg rouded-0" %>
+  </div>
+
+  <div>
+    <%= form.check_box :is_half_day %>
+    <%= form.label :is_half_day, class: "form-label mb-2 mt-2" %>
+  </div>
+
+  <div class="form-group mt-2">
+    <%= form.submit class: 'btn btn-primary' %>
+    <%= link_to "Back", employee_leave_applications_path, class: 'btn btn-outline-primary' %>
+  </div>
+<% end %>
