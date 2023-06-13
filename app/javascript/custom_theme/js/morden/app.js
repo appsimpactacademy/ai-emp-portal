@@ -34,7 +34,7 @@ var App = function() {
 
   var toggleFunction = {
     sidebar: function($recentSubmenu) {
-
+        
       var sidebarCollapseEle = document.querySelectorAll('.sidebarCollapse');
 
       sidebarCollapseEle.forEach(el => {
